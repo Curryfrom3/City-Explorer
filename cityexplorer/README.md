@@ -1,70 +1,66 @@
-# Getting Started with Create React App
+# Project Name
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**Author**: Deon Curry
+**Version**: 1.0.0 (increment the patch/fix version number if you make more commits past your first submission)
 
-## Available Scripts
+## Overview
 
-In the project directory, you can run:
+This is a web application that allows users to search for a city and get information about the location such as a map, images, and weather.
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Getting Started
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+To use this application, enter the name of the city you want to search for in the search bar and click the "Explore!" button. The app will then display a map of the location, photos of the city, and the current weather information for that location.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Architecture
 
-### `npm run build`
+The user enters a city name in the search bar and clicks the "Explore!" button.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+The handleSubmit function in App.js is called, which sends a request to the LocationIQ API with the entered city name as a query parameter.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+The LocationIQ API returns a response with the latitude and longitude of the location.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+The handleSubmit function then sends a request to the backend server with the latitude and longitude as query parameters.
 
-### `npm run eject`
+The server then sends requests to the Open Weather Map API and the Pexels API for weather and photo data respectively.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+The Open Weather Map API and the Pexels API both return responses with the requested data.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+The server combines the data from both APIs and sends a response back to the handleSubmit function.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+The handleSubmit function sets the state variables for the map, photos, and weather data with the received data.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+The render function then updates the UI with the received data.
+Functions
 
-## Learn More
+handleSubmit: This function is called when the user submits the search form. It sends a request to the LocationIQ API to get the latitude and longitude of the entered city. It then sends a request to the backend server with the 
+latitude and longitude as query parameters.
+getMap: This function takes latitude and longitude as parameters and returns a URL to a map of the location using the Mapbox API.
+getWeather: This function takes latitude and longitude as parameters and returns weather data for that location from the Open Weather Map API.
+getPhotos: This function takes a city name as a parameter and returns photos of that location from the Pexels API.
+server.js: This file contains the backend server that handles requests from the frontend and communicates with the Open Weather Map and Pexels APIs to get weather and photo data respectively.
+Dependencies
+Axios
+Bootstrap
+Environment Variables
+REACT_APP_LOCATIONIQ_API_KEY: API key for the LocationIQ API
+REACT_APP_BACKEND_URL: URL for the backend server
+Netlify Deployment
+This app has been deployed to Netlify at https://city-explorer.netlify.app/.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Change Log
 
-### Code Splitting
+## Credit and Collaborations
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
+Name of feature: ________._______________________
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Estimate of time needed to complete: __5___
 
-### Making a Progressive Web App
+Start time: __1330___
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Finish time: _____
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Actual time needed to complete: _____
